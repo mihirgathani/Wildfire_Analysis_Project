@@ -14,13 +14,9 @@ This project aims to answer the question, "What are the estimated wildfire smoke
 **Source Data**
 
 1. The wildfire data used in this project comes from the ["Combined Wildland Fire Datasets for the United States and Certain Territories, 1800s-Present"](https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81) dataset.
-
 Note: This dataset offers a "combined" file that removes duplicate entries and contains details on various types of wildland fires. For our analysis, we use the JSON file `USGS_Wildland_Fire_Combined_Dataset.json`. However, the `USGS_Wildland_Fire_Combined_Dataset.json` file is over 2 GB in size and couldn't be uploaded on GIT. In order to get that, you need to go the site mentioned above and then download the zip folder, and extract the file.
 
-**Note:** It is also subject to the [Wikimedia Foundation Terms of Use](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use). In accordance with these terms, the dataset created and used in this project is for research and analytical purposes. I have ensured this data should comply with the Wikimedia Foundation's policies regarding data usage, privacy, and attribution.
-
 2. The air quality index (AQI) data for this project was sourced using the US Environmental Protection Agency (EPA) Air Quality Service (AQS) API. The [API documentation](https://aqs.epa.gov/aqsweb/documents/data_api.html) provides detailed information on call parameters and includes sample requests.
-
 To retrieve AQI data from monitoring stations near Mesa, AZ, we utilized the [AQS API](https://aqs.epa.gov/aqsweb/documents/data_api.html) with [Federal Information Processing Standards (FIPS)](https://www.census.gov/library/reference/code-lists/ansi.html) codes specific to Mesa's city, county, and state, which we obtained from the above relevant resources.
 
 **Data Acquisition Code for AQI and Wildfire Proximity Calculation**
@@ -36,15 +32,15 @@ In order to run the code and get the required output, you would have to run the 
 Now that you have the entire repository cloned and environment setup, you should run the following files in order:
 (*Note: Each file has any required specific instructions to run successfully*)
 
-1. [`wildfire_data_acquisition_and_proximity.ipynb`](./Code/wildfire_data_acquisition_and_proximity.ipynb)
+1. [`wildfire_data_acquisition_and_proximity.ipynb`](./Code/wildfire_data_acquisition_and_proximity.ipynb): This file contains instructions to download the wildfire data and calculate the proximity of the wildfire data from Mesa, AZ.
 
-2. [`aqi_data_acquisition_and_processing.ipynb`](./Code/aqi_data_acquisition_and_processing.ipynb)
+2. [`aqi_data_acquisition_and_processing.ipynb`](./Code/aqi_data_acquisition_and_processing.ipynb): This file contains instructions to download the aqi data from the api for the city of Mesa, AZ based on the nearby stations.
 
-3. [`smoke_estimate.ipynb`](./Code/smoke_estimate.ipynb)
+3. [`smoke_estimate.ipynb`](./Code/smoke_estimate.ipynb): This file contains instructions to calculate the smoke estimate based on the wildfire data.
 
-4. [`Prediction_Model.ipynb`](./Code/Prediction_Model.ipynb)
+4. [`Prediction_Model.ipynb`](./Code/Prediction_Model.ipynb): This file contains code to create a prediction model in order to forecast the smoke estimate for the years (2021 - 2050). Again, it is from 2021 since we did not have data for 2021-2024 in the wildfire dataset.
 
-5. [`Data_Visualizations.ipynb`](./Code/Data_Visualizations.ipynb)
+5. [`Data_Visualizations.ipynb`](./Code/Data_Visualizations.ipynb): This file contains code to help visualize the data.
 
 Additionally, you would require API access to run some of the code. Instructions for the same are available inside the code file.
 
@@ -52,17 +48,17 @@ Additionally, you would require API access to run some of the code. Instructions
 During the execution of the project, several data files are created. Below is a list of these files and their descriptions:
 (*Note: Some of these files are in a zipped folder given their massive size and github size restrictions*)
 
-1. [`AQI_data.csv`](./Processed%20Data/AQI_data.csv):
+1. [`AQI_data.csv`](./Processed%20Data/AQI_data.zip): This file contains the filterd AQI Data. It is filtered for the years 1964-2024, and for the fire season May 1 - Oct 31.
 
-2. [`complete_wildfires_with_distances.csv`](./Processed%20Data/complete_wildfires_with_distances.csv)
+2. [`complete_wildfires_with_distances.csv`](./Processed%20Data/complete_wildfires_with_distances.zip): This file contains complete record of wildfires from 1964-2020.
 
-3. [`filtered_wildfires_with_distances.csv`](./Processed%20Data/filtered_wildfires_with_distances.csv)
+3. [`filtered_wildfires_with_distances.csv`](./Processed%20Data/filtered_wildfires_with_distances.csv): This file contains the distance filtered (less than or equal to 650 miles) record of wildfires from 1964-2020.
 
-4. [`gaseous_pollutants.csv`](./Processed%20Data/gaseous_pollutants.csv)
+4. [`gaseous_pollutants.csv`](./Processed%20Data/gaseous_pollutants.zip): This file contains the gaseous pollutants data from the AQI API. It contains information for years 1964-2024, excluding 1964 and 1970.
 
-5. [`particulate_pollutants.zip`](./Processed%20Data/particulate_pollutants.zip)
+5. [`particulate_pollutants.zip`](./Processed%20Data/particulate_pollutants.zip): This file contains the particulate pollutants data from the AQI API. It contains information for years 1988-2024.
 
-6: [`smoke_estimate_with_year_aqi.csv`](./Processed%20Data/smoke_estimate_with_year_aqi.csv)
+6: [`smoke_estimate_with_year_aqi.csv`](./Processed%20Data/smoke_estimate_with_year_aqi.csv): This file contains the final smoke estimates based on the wildfire data for the years 1964-2020. It also contains information about the annual average aqi.
 
 
 ## Final Output
@@ -83,4 +79,4 @@ The following considerations are important to consider when using this code:
 
 - **Missing Data**: There is a possibility that you might not get data for a particular year. This is possible if the dataset where we are pulling from has not been updated or incase the data for that year does not exist. I faced this situation for the AQI data, as I could not get data for 1964 and 1970. Also, I could not get data for wildfire from 2021-2024
 
-
+- **Smoke Estimate Calculations**: I utilized a combination of proximity, size (based on acres burned), and the type of fire in order to make an estimate of the smoke. However, in doing this, I did not consider other factors like wind, shape, and cause. It is also critical to know that my correlation with the AQI was only about 32%. This is important because every person might have a different way to calculate the estimate. 
