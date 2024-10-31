@@ -58,7 +58,7 @@ During the execution of the project, several data files are created. Below is a 
 
 5. [`particulate_pollutants.zip`](./Processed%20Data/particulate_pollutants.zip): This file contains the particulate pollutants data from the AQI API. It contains information for years 1988-2024.
 
-6: [`smoke_estimate_with_year_aqi.csv`](./Processed%20Data/smoke_estimate_with_year_aqi.csv): This file contains the final smoke estimates based on the wildfire data for the years 1964-2020. It also contains information about the annual average aqi.
+6. [`smoke_estimate_with_year_aqi.csv`](./Processed%20Data/smoke_estimate_with_year_aqi.csv): This file contains the final smoke estimates based on the wildfire data for the years 1964-2020. It also contains information about the annual average aqi.
 
 
 ## Final Output
