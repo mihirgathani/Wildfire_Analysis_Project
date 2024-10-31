@@ -62,7 +62,7 @@ During the execution of the project, several data files are created. Below is a 
 
 
 ## Final Output
-The final output for this part of the project is 3 Data Visualizations as follows:
+The final output for this part of the project is 3 Data Visualizations and a PDF with the reflection as follows:
 
 1. [**Histogram of Wildfires by Distance from Mesa, AZ (Up to 1800 Miles)**](./Output%20Files/Visualization%201.jpg): This plot shows the number of wildfires occurring at every 50-mile interval from Mesa, AZ, up to 1800 miles. It also highlights the 650-mile cut-off used for modeling wildfire impacts on the city.
    
@@ -70,6 +70,7 @@ The final output for this part of the project is 3 Data Visualizations as follow
 
 3. [**Time Series of Wildfire Smoke Estimates and AQI for Mesa, AZ (1964-2024)**](./Output%20Files/Visualization%203.jpg): This time series graph compares the annual wildfire smoke estimates calculated for Mesa, AZ, with the calculated yearly average EPA's Air Quality Index (AQI) data from 1964 to 2024. 
 
+4. [**Reflection**](./Data%20512_%20Part%201_%20Project%20Reflection.pdf): This file contains the reflection answering questions about the visualazations, learnings and collaborations.
 
 
 ## Potential Considerations: 
