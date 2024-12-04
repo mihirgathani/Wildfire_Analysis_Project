@@ -1,4 +1,4 @@
-# Wildfire_Analysis_Project-Part_1
+# Wildfire_Analysis_Project
 
 ## Project Goal
 This project aims to answer the question, "What are the estimated wildfire smoke impacts on your assigned city each year for the most recent 60 years of wildfire data?" [Taken from assignment spec]. In my case, I have been assigned with the city Mesa, AZ. The analysis focuses on identifying patterns in wildfire activity, estimating the potential smoke impact from these fires, and comparing it to actual air quality measurements (AQI). The project uses data visualizations to explore these relationships and provide insights into how wildfires may have influenced air quality in the region.
