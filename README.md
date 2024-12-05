@@ -5,6 +5,8 @@ This project investigates the health impacts of wildfire smoke exposure on the c
 
 The analysis combines historical smoke exposure data with health outcome trends to provide actionable insights for Mesa’s city council and residents. The goal is to inform strategies and policies that mitigate the long-term effects of wildfire smoke on community health and the healthcare system. This project aims to highlight the importance of proactive measures to address the challenges posed by wildfire smoke in urban environments.
 
+You can find the full report of this project [here]().
+
 ### Information on my assigned city:
 | City | State | 2023 Estimate | 2020 Census | 2020 Density (mi²) | Location         | FIPS |
 |------|-------|---------------|-------------|--------------------|----------------- |------|
@@ -55,7 +57,7 @@ Note: The ADHS data is not explicitly licensed under a specific framework, but u
 All other code is licensed under the [MIT licence](./LICENSE).
 
 ## Steps to run the code
-In order to run the code and get the required output, you would have to run the following steps:
+In order to run the code and get the required output, you would have to run the following files in order:
 
 - **Pre-run Information:** In order to successfully run the code, you need to clone/ download the repository and upload it to a Jupyter Environment (a place where .ipynb files can run). After this, you will need to ensure that the required Python packages are installed. Instructions to do so can be found in the individual code files.
 
@@ -87,11 +89,11 @@ Additionally, you would require API access to run some of the code. Instructions
 1. [CDC Wonder Mortality Data](./Raw%20Data/1999-2020_Mortality%20Data.txt)
 This dataset contains detailed information about respiratory mortality from 1999 - 2020. It contains the following details: Year, Age Group, Gender, Deaths, Population and Crude Rate. It was originally sourced from the [CDC Wonder Mortality Website](https://wonder.cdc.gov/mcd.html) using the query criteria:
  
-States:	Maricopa County, AZ (04013)
+   States:	Maricopa County, AZ (04013)
 
-UCD - ICD-10 Codes:	J00-J98 (Diseases of the respiratory system)
+   UCD - ICD-10 Codes:	J00-J98 (Diseases of the respiratory system)
 
-Group By:	Year; Ten-Year Age Groups; Gender
+   Group By:	Year; Ten-Year Age Groups; Gender
 
 2. Arizona Department of Health Services (ADHS)
 The ADHS is the state's public health agency responsible for overseeing a wide range of health-related programs and data collection efforts. For my analysis, I utilize several datasets provided by ADHS to explore the healthcare impacts of wildfire smoke on respiratory illnesses in Mesa.
@@ -137,7 +139,31 @@ The final output for this project includes a bunch of data visualizations and so
 
 3. [**Time Series of Wildfire Smoke Estimates and AQI for Mesa, AZ (1964-2024)**](./Output%20Files/Visualization%203.jpg): This time series graph compares the annual wildfire smoke estimates calculated for Mesa, AZ, with the calculated yearly average EPA's Air Quality Index (AQI) data from 1964 to 2024.
 
-4. [**Reflection**](./Data%20512_%20Part%201_%20Project%20Reflection.pdf): This file contains the reflection answering questions about the visualazations, learnings and collaborations.
+4. [**Time Series of Asthma, All Mentions for Emergency Visits and Smoke Estimates**](./Output%20Files/Asthma_All_mentions_emergency_visits_with_smoke_estimates.png): This graph displays trend of Asthma, for emergency visits and all mentions (i.e. Asthma is one of the diagnosis) alongside the smoke estimates to help understand if they converge or diverge.
+
+5. [**Time Series of Asthma, First Diagnosis for Emergency Visits and Smoke Estimates**](./Output%20Files/Asthma_first_diagnosis_emergency_visits_with_smoke_estimates.png): This graph displays trend of Asthma, for emergency visits and first diagnosis alongside the smoke estimates to help understand if they converge or diverge.
+
+6. [**Time Series of Asthma, All Mentions for Inpatient Discharges and Smoke Estimates**](./Output%20Files/Asthma_All_mentions_inpatient_discharges_with_smoke_estimates.png): This graph displays trend of Asthma, for inpatient discharges and all mentions (i.e. Asthma is one of the diagnosis) alongside the smoke estimates to help understand if they converge or diverge.
+
+7. [**Time Series of Asthma, First Diagnosis for Inpatient Discharges and Smoke Estimates**](./Output%20Files/Asthma_first_diagnosis_inpatient_discharges_with_smoke_estimates.png): This graph displays trend of Asthma, for inpatient discharges and first diagnosis alongside the smoke estimates to help understand if they converge or diverge.
+
+8. [**Time Series of Respiratory related Mortality and Smoke Estimates**](./Output%20Files/Respiratory_Mortality_with_smoke_estimates.png): This graph displays trend of mortality due to respiratory diseases alongside the smoke estimates to help understand if they converge or diverge.
+
+9. [**Time Series of Respiratory related Mortality by gender and Smoke Estimates**](./Output%20Files/Respiratory_Mortality_by_gender_with_smoke_estimates.png): This graph displays trend of mortality due to respiratory diseases, filtered by gender, alongside the smoke estimates to help understand if one gender is more affected than the other.
+
+10. [**Time Series of Respiratory related Mortality by age groups and Smoke Estimates**](./Output%20Files/Respiratory_Mortality_by_age_with_smoke_estimates.png): This graph displays trend of mortality due to respiratory diseases, filtered by age groups, alongside the smoke estimates to help understand if a specific age group is most affected by the changes in smoke due to wildfires.
+
+11. [**Time Series of Number of Operations of the Respiratory System and Smoke Estimates**](./Output%20Files/Operations_of_respiratory_system_with_smoke_estimates.png): This graph displays how the number of operations of the respiratory system have changed over the years alongisde the smoke estimates to help understand if an increase or decrease in the smoke corresponds with an increase or decrease in the number of operations.
+
+12. [**Time Series of Number of Respiratory Therapy and Smoke Estimates**](./Output%20Files/Respiratory_therapy_with_smoke_estimates.png): This graph displays how the number of respiratory therapies have changed over the years alongisde the smoke estimates to help understand if an increase or decrease in the smoke corresponds with an increase or decrease in the number of therapies.
+
+13. [**Correlation Scores of Health Variables with Smoke Estimates**](./Output%20Files/correlation_with_smoke_estimates.png): This chart contains the correlation scores between each of the health variables and the smoke estimates to understand how the smoke from wildfires is actually affecting the variable.
+
+14. [**Future Predictions and Historical Trends of Health Factors**](./Output%20Files/HealthCare_Predictions.png): This visualization consists of multiple charts, each showing the historical trend (1999-2020) and the predicted future values of the individual health variable for the years 2021 - 2050.
+
+15. [**Reflection**](./Project%20Reflection.pdf): This file contains the reflection answering questions about the visualazations, learnings and collaborations.
+
+16. [**Extension Plan**](./Extension%20Plan.pdf): This file contains the extension plan that describes how to analyze the impacts of smoke from wildfires on the health of Mesa residents.
 
 
 ## Potential Limitations and Considerations: 
@@ -163,6 +189,6 @@ The following considerations are important to consider when using this code:
 
 ## Conclusion
 
-In this project, I analyzed the impact of wildfire smoke on respiratory health in Mesa, AZ, using historical data and predictive models. To calculate the smoke estimates, I considered factors such as proximity to wildfires, fire size (acres burned), and fire type to estimate the level of smoke exposure in the region. The analysis revealed a strong correlation between increased smoke exposure and higher respiratory mortality, as well as an uptick in respiratory therapy procedures and number of operations of the respiratory system and inpatient discharges for asthma. While the correlation with asthma-related emergency visits was weaker, I found that respiratory procedures showed a strong positive relationship with smoke levels.
+In this project, I analyzed the impact of wildfire smoke on respiratory health in Mesa, AZ, using historical data and predictive models. First, to calculate the smoke estimates, I considered factors such as proximity to wildfires, fire size (acres burned), and fire type to estimate the level of smoke exposure in the region. The forecasting of the smoke estimate showed that smoke from the wildfires is about to significantly rise by 2050. Next, I preprocessed the health data and the analysis revealed a strong correlation between increased smoke exposure and higher respiratory mortality, as well as an uptick in respiratory therapy procedures and number of operations of the respiratory system and inpatient discharges for asthma. While the correlation with asthma-related emergency visits was weaker, I found that respiratory procedures showed a strong positive relationship with smoke levels. The histoical analysis revealed that smoke from wildfires was significantly affect the health of Mesa residents. 
 
-Using the VARMAX model, I forecasted future trends in respiratory health outcomes from 2021 to 2050, predicting a significant increase in asthma-related issues, respiratory operations, and therapy procedures. This upward trend in both smoke exposure and health complications emphasizes the growing threat of wildfires to public health. The findings underscore the need for proactive public health measures, including enhanced air quality monitoring, improved healthcare infrastructure, and stronger wildfire prevention policies. By understanding these trends, we can better prepare for the long-term health impacts of wildfire smoke in Mesa and similar regions.
+Finally, using the VARMAX model, I forecasted future trends in respiratory health outcomes from 2021 to 2050, predicting a significant increase in asthma-related issues, respiratory operations, and therapy procedures. This upward trend in both smoke exposure and health complications emphasizes the growing threat of wildfires to public health. The findings underscore the need for proactive public health measures, including enhanced air quality monitoring, improved healthcare infrastructure, and stronger wildfire prevention policies. By understanding these trends, we can better prepare for the long-term health impacts of wildfire smoke in Mesa and similar regions.
