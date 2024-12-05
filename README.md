@@ -5,7 +5,7 @@ This project investigates the health impacts of wildfire smoke exposure on the c
 
 The analysis combines historical smoke exposure data with health outcome trends to provide actionable insights for Mesa’s city council and residents. The goal is to inform strategies and policies that mitigate the long-term effects of wildfire smoke on community health and the healthcare system. This project aims to highlight the importance of proactive measures to address the challenges posed by wildfire smoke in urban environments.
 
-You can find the full report of this project [here]().
+You can find the full report of this project [here](https://docs.google.com/document/d/10L9McJvnFVSUlC6ppvI0PQxOzJryna0u_EoLdaljaPY/edit?usp=sharing).
 
 ### Information on my assigned city:
 | City | County   | State | 2023 Estimate | 2020 Census | 2020 Density (mi²) | Location         | FIPS |
