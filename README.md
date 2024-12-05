@@ -1,23 +1,52 @@
-# Wildfire_Analysis_Project
+# Wildfire Analysis Project - Mesa, AZ
 
-## Project Goal
-This project aims to answer the question, "What are the estimated wildfire smoke impacts on your assigned city each year for the most recent 60 years of wildfire data?" [Taken from assignment spec]. In my case, I have been assigned with the city Mesa, AZ. The analysis focuses on identifying patterns in wildfire activity, estimating the potential smoke impact from these fires, and comparing it to actual air quality measurements (AQI). The project uses data visualizations to explore these relationships and provide insights into how wildfires may have influenced air quality in the region.
+## Project Overview
+This project investigates the health impacts of wildfire smoke exposure on the community of Mesa, Arizona. With the increasing frequency and intensity of wildfires, understanding their effect on public health has become an urgent priority. Using data from the US Geological Survey (USGS), EPA Air Quality System (AQS), CDC, and the Arizona Department of Health Services (ADHS), I analyze trends in respiratory disease mortality, healthcare utilization, and other health indicators.
+
+The analysis combines historical smoke exposure data with health outcome trends to provide actionable insights for Mesa’s city council and residents. The goal is to inform strategies and policies that mitigate the long-term effects of wildfire smoke on community health and the healthcare system. This project aims to highlight the importance of proactive measures to address the challenges posed by wildfire smoke in urban environments.
 
 ### Information on my assigned city:
 | City | State | 2023 Estimate | 2020 Census | 2020 Density (mi²) | Location         | FIPS |
 |------|-------|---------------|-------------|--------------------|----------------- |------|
 | Mesa | AZ    | 511,648       | 504,258     | 3,636              | 33.40°N 111.72°W |04013 |
 
+## Motivation and Problem Statement
+Wildfire smoke represents a growing public health concern in Mesa, Arizona, where wildfires have become increasingly common. Smoke exposure is associated with serious health risks, particularly for vulnerable populations such as children, the elderly, and individuals with pre-existing respiratory conditions. Despite these risks, there is limited localized analysis of how prolonged exposure affects community health outcomes. This project addresses the need for a comprehensive understanding of the relationship between wildfire smoke and health impacts in Mesa. Specifically, we examine trends in asthma-related hospitalizations, respiratory disease mortality, and other health indicators to identify patterns and correlations.
+
+### Research Questions
+1. How, if at all, have respiratory disease mortality rates in Mesa (based on Maricopa County) been influenced by wildfire smoke exposure, and what patterns might emerge through 2050?
+
+2. What is the relationship between smoke exposure and healthcare utilization, specifically examining:
+- Trends in asthma-related inpatient hospitalizations.
+- Patterns in emergency department visits for respiratory issues.
+
+3. How has the number of respiratory-related medical procedures changed over time with increased smoke exposure? Is there a relationship between the two?
+
+By leveraging public health datasets and advanced analysis, this project provides evidence-based insights to support Mesa’s policymakers, healthcare providers, and residents in addressing the challenges posed by wildfire smoke. 
 
 ## Licenses
 
 **Source Data**
 
-1. The wildfire data used in this project comes from the ["Combined Wildland Fire Datasets for the United States and Certain Territories, 1800s-Present"](https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81) dataset.
-Note: This dataset offers a "combined" file that removes duplicate entries and contains details on various types of wildland fires. For our analysis, we use the JSON file `USGS_Wildland_Fire_Combined_Dataset.json`. However, the `USGS_Wildland_Fire_Combined_Dataset.json` file is over 2 GB in size and couldn't be uploaded on GIT. In order to get that, you need to go the site mentioned above and then download the zip folder, and extract the file.
+1. The wildfire data used in this project comes from the ["Combined Wildland Fire Datasets for the United States and Certain Territories, 1800s-Present"](https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81) dataset. It is publicly available and is not subkect to copyright restrictions, but must be cited as:
+   
+   `Welty, J.L., and Jeffries, M.I., 2021, Combined wildland fire datasets for the United States and certain territories, 1800s-Present: U.S. Geological Survey data release, https://doi.org/10.5066/P9ZXGFY3.`
 
-2. The air quality index (AQI) data for this project was sourced using the US Environmental Protection Agency (EPA) Air Quality Service (AQS) API. The [API documentation](https://aqs.epa.gov/aqsweb/documents/data_api.html) provides detailed information on call parameters and includes sample requests.
-To retrieve AQI data from monitoring stations near Mesa, AZ, we utilized the [AQS API](https://aqs.epa.gov/aqsweb/documents/data_api.html) with [Federal Information Processing Standards (FIPS)](https://www.census.gov/library/reference/code-lists/ansi.html) codes specific to Mesa's city, county, and state, which we obtained from the above relevant resources.
+   Note: This dataset offers a "combined" file that removes duplicate entries and contains details on various types of wildland fires. For our analysis, we use the JSON file `USGS_Wildland_Fire_Combined_Dataset.json`. However, the `USGS_Wildland_Fire_Combined_Dataset.json` file is over 2 GB in size and couldn't be uploaded on GIT. In order to get that, you need to go the site mentioned above and then download the zip folder, and extract the file.
+
+2. The air quality index (AQI) data for this project was sourced using the US Environmental Protection Agency (EPA) Air Quality Service (AQS) API. The [API documentation](https://aqs.epa.gov/aqsweb/documents/data_api.html) provides detailed information on call parameters and includes sample requests. To retrieve AQI data from monitoring stations near Mesa, AZ, we utilized the [AQS API](https://aqs.epa.gov/aqsweb/documents/data_api.html) with [Federal Information Processing Standards (FIPS)](https://www.census.gov/library/reference/code-lists/ansi.html) codes specific to Mesa's city, county, and state, which we obtained from the above relevant resources. The AQI Data lies in the public domain and is not subject to domestic copyright protection under `17 U.S.C. § 105.`
+
+3. CDC Wonder Mortality Data
+The CDC Wonder Mortality Data provides detailed information on mortality from 1999–2022. The dataset is available in the public domain and is governed by the [Public Health Service Act (42 U.S.C. 242m(d))](https://wonder.cdc.gov/datause.html).
+
+4. Arizona Department of Health Services (ADHS) Data
+Multiple datasets from the Arizona Department of Health Services were used in this project, including:
+   - [Asthma-Related Inpatient Discharges and Emergency Visits (2000-2021)](https://pub.azdhs.gov/health-stats/hip/index.php?pg=asthma)
+   - [Medical Procedures Data (2000-2021)](https://pub.azdhs.gov/health-stats/hip/index.php?pg=procedure)
+
+These datasets are publicly available for non-commercial use with proper attribution to the Arizona Department of Health Services.
+
+Note: The ADHS data is not explicitly licensed under a specific framework, but usage is restricted to non-commercial purposes with proper citation.
 
 **Data Acquisition Code for AQI and Wildfire Proximity Calculation**
 
