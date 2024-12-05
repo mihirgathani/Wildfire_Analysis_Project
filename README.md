@@ -1,4 +1,4 @@
-# Wildfire Analysis Project - Mesa, AZ
+# Analysis of Wildfire Impact on Mesa, AZ
 
 ## Project Overview
 This project investigates the health impacts of wildfire smoke exposure on the community of Mesa, Arizona. With the increasing frequency and intensity of wildfires, understanding their effect on public health has become an urgent priority. Using data from the US Geological Survey (USGS), EPA Air Quality System (AQS), CDC, and the Arizona Department of Health Services (ADHS), I analyze trends in respiratory disease mortality, healthcare utilization, and other health indicators.
@@ -8,9 +8,9 @@ The analysis combines historical smoke exposure data with health outcome trends 
 You can find the full report of this project [here]().
 
 ### Information on my assigned city:
-| City | State | 2023 Estimate | 2020 Census | 2020 Density (mi²) | Location         | FIPS |
-|------|-------|---------------|-------------|--------------------|----------------- |------|
-| Mesa | AZ    | 511,648       | 504,258     | 3,636              | 33.40°N 111.72°W |04013 |
+| City | County   | State | 2023 Estimate | 2020 Census | 2020 Density (mi²) | Location         | FIPS |
+|------|----------|-------|---------------|-------------|--------------------|----------------- |------|
+| Mesa | Maricopa | AZ    | 511,648       | 504,258     | 3,636              | 33.40°N 111.72°W |04013 |
 
 ## Motivation and Problem Statement
 Wildfire smoke represents a growing public health concern in Mesa, Arizona, where wildfires have become increasingly common. Smoke exposure is associated with serious health risks, particularly for vulnerable populations such as children, the elderly, and individuals with pre-existing respiratory conditions. Despite these risks, there is limited localized analysis of how prolonged exposure affects community health outcomes. This project addresses the need for a comprehensive understanding of the relationship between wildfire smoke and health impacts in Mesa. Specifically, we examine trends in asthma-related hospitalizations, respiratory disease mortality, and other health indicators to identify patterns and correlations.
