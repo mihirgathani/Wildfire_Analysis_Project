@@ -72,11 +72,34 @@ Now that you have the entire repository cloned and environment setup, you should
 
 5. [`Data_Visualizations.ipynb`](./Code/Data_Visualizations.ipynb): This file contains code to help visualize the data.
 
-6. 
+6. [`ExtensionPlan_DataPreprocessing.ipynb`](./Code/ExtensionPlan_DataPreprocessing.ipynb): This file contains code to read the raw health and mortality data from the [Raw Data folder](./Raw%20Data/), and preprocess it to make it more usable. It outputs multiple csv files and stores it in the [Processed Data folder](./Processed%20Data/).
+
+7. [`ExtensionPlan_DataExploration.ipynb`](./Code/ExtensionPlan_DataExploration.ipynb): This file contains code to explore the preprocessed health and mortality data, and analyzes the correlation between the smoke from wildfires with these metrics. It produces a bunch of charts and graphs that are stored in the [Output Files folder](./Output%20Files/)
+
+8. [`ExtensionPlan_Forecasting.ipynb`](./Code/ExtensionPlan_Forecasting.ipynb): This file contains code to forecast the impact of smoke from wildfires on the different health indicators from 2021-2050. It produces a bunch of charts and graphs that are stored in the [Output Files folder](./Output%20Files/)
 
 Additionally, you would require API access to run some of the code. Instructions for the same are available inside the code file.
 
 ## Data Files
+
+### Raw Data Files
+
+1. [CDC Wonder Mortality Data](./Raw%20Data/1999-2020_Mortality%20Data.txt)
+This dataset contains detailed information about respiratory mortality from 1999 - 2020. It contains the following details: Year, Age Group, Gender, Deaths, Population and Crude Rate. It was originally sourced from the [CDC Wonder Mortality Website](https://wonder.cdc.gov/mcd.html) using the query criteria:
+ 
+States:	Maricopa County, AZ (04013)
+UCD - ICD-10 Codes:	J00-J98 (Diseases of the respiratory system)
+Group By:	Year; Ten-Year Age Groups; Gender
+
+2. Arizona Department of Health Services (ADHS)
+The ADHS is the state's public health agency responsible for overseeing a wide range of health-related programs and data collection efforts. For my analysis, I utilize several datasets provided by ADHS to explore the healthcare impacts of wildfire smoke on respiratory illnesses in Mesa.
+
+   - [ADHS Asthma-Related Inpatient Discharges and Emergency Visits Data](./Raw%20Data/Inpatient%20VS%20Emergency/): This dataset includes information on asthma-related inpatient discharges (2000-2021) and emergency visits (2003-2021) across Maricopa County. It contains the following fields: County, Year, Gender, Age Group, Number of Discharges, Number of Emergency Visits. The original data was sourced from the [ADHS website](https://pub.azdhs.gov/health-stats/hip/index.php?pg=asthma)
+   Note: This data also contains information about whether Asthma was the first-listed diagnosis or was one of All Diagnosis.
+
+   - [ADHS Medical Procedures Data](./Raw%20Data/By%20Procedures/): This dataset includes county-level information about the number of inpatient discharges by different medical procedures performed annually from 2000 to 2021 by procedure category. It includes procedure categories such as respiratory therapy, which can be used to understand whether wildfires are leading to an increase in respiratory procedures. The original data was sourced from the [ADHS website](https://pub.azdhs.gov/health-stats/hip/index.php?pg=procedure)
+
+
 During the execution of the project, several data files are created. Below is a list of these files and their descriptions:
 (*Note: Some of these files are in a zipped folder given their massive size and github size restrictions*)
 
@@ -92,6 +115,15 @@ During the execution of the project, several data files are created. Below is a 
 
 6. [`smoke_estimate_with_year_aqi.csv`](./Processed%20Data/smoke_estimate_with_year_aqi.csv): This file contains the final smoke estimates based on the wildfire data for the years 1964-2020. It also contains information about the annual average aqi.
 
+7. [`1999_2020_Mortality_Data.csv`](./Processed%20Data/1999_2020_Mortality_Data.csv): This file contains the information about the respiratory related mortality data for Maricopa county from 1999 - 2020.
+
+8. [`2000_2015_respiratory_therapy.csv`](./Processed%20Data/2000_2015_respiratory_therapy.csv): This file contains the information about the number of respiratory therapies from 2000 - 2015 in Maricopa county.
+
+9. [`2000_2020_respiratory_system_operations.csv`](./Processed%20Data/2000_2020_respiratory_system_operations.csv): This file contains the information about the number of operations of the respiratory system from 2000 - 2020 in Maricopa county.
+
+10. [`2003_2021_emergency_visits_data.csv`](./Processed%20Data/2003_2021_emergency_visits_data.csv): This file contains the information about the number of emergency visits where one of the potential causes was Asthma from 2003 - 2021 in Maricopa county.
+
+11. [`2003_2021_inpatient_discharge_data.csv`](./Processed%20Data/2003_2021_inpatient_discharge_data.csv): This file contains the information about the number of inpatient discharges where one of the potential causes was Asthma from 2003 - 2021 in Maricopa county.
 
 ## Final Output
 The final output for this part of the project is 3 Data Visualizations and a PDF with the reflection as follows:
@@ -105,11 +137,25 @@ The final output for this part of the project is 3 Data Visualizations and a PDF
 4. [**Reflection**](./Data%20512_%20Part%201_%20Project%20Reflection.pdf): This file contains the reflection answering questions about the visualazations, learnings and collaborations.
 
 
-## Potential Considerations: 
+## Potential Limitations and Considerations: 
 The following considerations are important to consider when using this code:
 
 - **API Rate Limits**: Although the code accounts for API rate limits, there might be a possibility that it may affect data acquistion, especially in case the API changes. 
 
-- **Missing Data**: There is a possibility that you might not get data for a particular year. This is possible if the dataset where we are pulling from has not been updated or incase the data for that year does not exist. I faced this situation for the AQI data, as I could not get data for 1964 and 1970. Also, I could not get data for wildfire from 2021-2024
+- **Missing Data**: There is a possibility that you might not get data for a particular year. This is possible if the dataset where we are pulling from has not been updated or incase the data for that year does not exist. This causes problems since the lack of data will lead to lower accuracy of results. Specifically, we have missing data in the following:
+   - Wildfire Data: I could not get data for wildfire from 2021-2024.
+   - AQI Data: I could not get data for 1964 and 1970.
+   - CDC Mortality Data: The suppression of death counts of 9 or fewer limits the granularity of the analysis, especially for smaller subpopulations. Additionally, county-level data does not capture city-specific trends, which could obscure localized impacts. Lastly, this data exists only from 1999 - 2020.
+   - ADHS Data: Not all data is available for all years, most is available only from 2000 - 2015.
 
-- **Smoke Estimate Calculations**: I utilized a combination of proximity, size (based on acres burned), and the type of fire in order to make an estimate of the smoke. However, in doing this, I did not consider other factors like wind, shape, and cause. It is also critical to know that my correlation with the AQI was only about 32%. This is important because every person might have a different way to calculate the estimate. 
+- **Smoke Estimate Calculations**: I utilized a combination of proximity, size (based on acres burned), and the type of fire in order to make an estimate of the smoke. However, in doing this, I did not consider other factors like wind, shape, and cause. It is also critical to know that my correlation with the AQI was only about 32%, indicating room for improvement in the estimation approach. This is important because every person might have a different way to calculate the estimate. 
+
+- **Causality vs. Correlation**: The project identifies potential correlations but does not establish causality due to confounding factors like healthcare access, socioeconomic disparities, and environmental influences not accounted for in the analysis.  
+
+- **Sparse Historical Data**: While smoke data spans several decades, healthcare datasets are available only from 2000 onward. This limits the ability to study the long-term health impacts of wildfire smoke exposure.  
+
+- **External Factors**: I am looking at smoke data only near my county, however, there is evidence that wildfires from far away, like in California also affect the AQI of Mesa, AZ.
+
+- **Predictive Model Limitations**: While the model explains a significant portion of the variation in the data, it is not perfect. For example, predictions for certain years or health indicators may deviate due to limited features or sparse training data. Moreover,confounding variables like pre-existing health conditions, dietary habits, or exposure to other pollutants are not considered, reducing the model's comprehensiveness.
+
+
