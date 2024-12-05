@@ -88,7 +88,9 @@ Additionally, you would require API access to run some of the code. Instructions
 This dataset contains detailed information about respiratory mortality from 1999 - 2020. It contains the following details: Year, Age Group, Gender, Deaths, Population and Crude Rate. It was originally sourced from the [CDC Wonder Mortality Website](https://wonder.cdc.gov/mcd.html) using the query criteria:
  
 States:	Maricopa County, AZ (04013)
+
 UCD - ICD-10 Codes:	J00-J98 (Diseases of the respiratory system)
+
 Group By:	Year; Ten-Year Age Groups; Gender
 
 2. Arizona Department of Health Services (ADHS)
@@ -99,6 +101,7 @@ The ADHS is the state's public health agency responsible for overseeing a wide r
 
    - [ADHS Medical Procedures Data](./Raw%20Data/By%20Procedures/): This dataset includes county-level information about the number of inpatient discharges by different medical procedures performed annually from 2000 to 2021 by procedure category. It includes procedure categories such as respiratory therapy, which can be used to understand whether wildfires are leading to an increase in respiratory procedures. The original data was sourced from the [ADHS website](https://pub.azdhs.gov/health-stats/hip/index.php?pg=procedure)
 
+### Processed Data Files
 
 During the execution of the project, several data files are created. Below is a list of these files and their descriptions:
 (*Note: Some of these files are in a zipped folder given their massive size and github size restrictions*)
@@ -125,14 +128,14 @@ During the execution of the project, several data files are created. Below is a 
 
 11. [`2003_2021_inpatient_discharge_data.csv`](./Processed%20Data/2003_2021_inpatient_discharge_data.csv): This file contains the information about the number of inpatient discharges where one of the potential causes was Asthma from 2003 - 2021 in Maricopa county.
 
-## Final Output
-The final output for this part of the project is 3 Data Visualizations and a PDF with the reflection as follows:
+### Final Output Files
+The final output for this project includes a bunch of data visualizations and some reports and plans, including:
 
 1. [**Histogram of Wildfires by Distance from Mesa, AZ (Up to 1800 Miles)**](./Output%20Files/Visualization%201.jpg): This plot shows the number of wildfires occurring at every 50-mile interval from Mesa, AZ, up to 1800 miles. It also highlights the 650-mile cut-off used for modeling wildfire impacts on the city.
    
 2. [**Time Series of Total Acres Burned Per Year Within 650 Miles of Mesa, AZ**](./Output%20Files/Visualization%201.jpg): This graph displays the total acres burned per year for wildfires occurring within 650 miles of Mesa, AZ.
 
-3. [**Time Series of Wildfire Smoke Estimates and AQI for Mesa, AZ (1964-2024)**](./Output%20Files/Visualization%203.jpg): This time series graph compares the annual wildfire smoke estimates calculated for Mesa, AZ, with the calculated yearly average EPA's Air Quality Index (AQI) data from 1964 to 2024. 
+3. [**Time Series of Wildfire Smoke Estimates and AQI for Mesa, AZ (1964-2024)**](./Output%20Files/Visualization%203.jpg): This time series graph compares the annual wildfire smoke estimates calculated for Mesa, AZ, with the calculated yearly average EPA's Air Quality Index (AQI) data from 1964 to 2024.
 
 4. [**Reflection**](./Data%20512_%20Part%201_%20Project%20Reflection.pdf): This file contains the reflection answering questions about the visualazations, learnings and collaborations.
 
@@ -158,4 +161,8 @@ The following considerations are important to consider when using this code:
 
 - **Predictive Model Limitations**: While the model explains a significant portion of the variation in the data, it is not perfect. For example, predictions for certain years or health indicators may deviate due to limited features or sparse training data. Moreover,confounding variables like pre-existing health conditions, dietary habits, or exposure to other pollutants are not considered, reducing the model's comprehensiveness.
 
+## Conclusion
 
+In this project, I analyzed the impact of wildfire smoke on respiratory health in Mesa, AZ, using historical data and predictive models. To calculate the smoke estimates, I considered factors such as proximity to wildfires, fire size (acres burned), and fire type to estimate the level of smoke exposure in the region. The analysis revealed a strong correlation between increased smoke exposure and higher respiratory mortality, as well as an uptick in respiratory therapy procedures and number of operations of the respiratory system and inpatient discharges for asthma. While the correlation with asthma-related emergency visits was weaker, I found that respiratory procedures showed a strong positive relationship with smoke levels.
+
+Using the VARMAX model, I forecasted future trends in respiratory health outcomes from 2021 to 2050, predicting a significant increase in asthma-related issues, respiratory operations, and therapy procedures. This upward trend in both smoke exposure and health complications emphasizes the growing threat of wildfires to public health. The findings underscore the need for proactive public health measures, including enhanced air quality monitoring, improved healthcare infrastructure, and stronger wildfire prevention policies. By understanding these trends, we can better prepare for the long-term health impacts of wildfire smoke in Mesa and similar regions.
