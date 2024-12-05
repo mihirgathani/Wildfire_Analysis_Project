@@ -52,6 +52,7 @@ Note: The ADHS data is not explicitly licensed under a specific framework, but u
 
 - Parts of the code in were taken as-is or with minimal changes from the [example codes](./Resources/) that were developed by Dr. David W. McDonald for use in DATA 512, a course in the UW MS Data Science degree program. This code is provided under the [Creative Commons](https://creativecommons.org) [CC-BY license](https://creativecommons.org/licenses/by/4.0/). Revision 1.3 - August 16, 2024
 
+All other code is licensed under the [MIT licence](./LICENSE).
 
 ## Steps to run the code
 In order to run the code and get the required output, you would have to run the following steps:
@@ -70,6 +71,8 @@ Now that you have the entire repository cloned and environment setup, you should
 4. [`Prediction_Model.ipynb`](./Code/Prediction_Model.ipynb): This file contains code to create a prediction model in order to forecast the smoke estimate for the years (2021 - 2050). Again, it is from 2021 since we did not have data for 2021-2024 in the wildfire dataset.
 
 5. [`Data_Visualizations.ipynb`](./Code/Data_Visualizations.ipynb): This file contains code to help visualize the data.
+
+6. 
 
 Additionally, you would require API access to run some of the code. Instructions for the same are available inside the code file.
 
